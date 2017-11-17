@@ -21,7 +21,7 @@ router.get('/books', function(req,res,next) {
 
 router.post('/books', function(req,res,next) {
   console.log("HERE");
-  var searchBook = req.body;
+  var searchBook = req.body.text;
   var goodReads = "https://www.goodreads.com/search/?q=";
   var APIkey = "&key=kHFSG3T2ByzOJEZcpEw9vw";
   goodReads = goodReads + searchBook + APIkey;
