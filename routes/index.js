@@ -2,22 +2,22 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var request = require('request');
-var parseString = require('xml2js').parseString;
-var BookSchema = new mongoose.Schema({
+//var parseString = require('xml2js').parseString;
+/*var BookSchema = new mongoose.Schema({
     title:String,
     isbn:String,
     reviews: [{text:String, userID:String}]
 });
 
-var Book = mongoose.model('Book', BookSchema);
+//var Book = mongoose.model('Book', BookSchema);
 
 
 router.get('/books', function(req,res,next) {
-  Book.find(function(err,books){
+  //Book.find(function(err,books){
     if(err){return next(err);}
-    res.json(books);
-  });
-});
+    //res.json(books);
+  //});
+});*/
 
 router.post('/books', function(req,res,next) {
   console.log("HERE");
