@@ -12,10 +12,15 @@ angular.module('book', [])
             };
 
             $scope.addBook = function() {
+		var bookURL = 'books';
                 bookQuery = $scope.searchQuery.split(' ').join('+');
                 console.log(bookQuery);
-                return $http.post('/books', bookQuery).success(function(data){
-                   $scope.books.push(data);
+                return $http({
+			url: bookURL,
+			method: "POST",
+			data: bookQuery
+		}).success(function(data){
+                   $scope.books.push(data); $scope.searchQuery = '';
                 });
             };
 
