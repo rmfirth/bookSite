@@ -12,14 +12,16 @@ angular.module('book', [])
             };
 
             $scope.addBook = function() {
-		var bookURL = 'books';
-                bookQuery = $scope.searchQuery.split(' ').join('+');
+                var bookURL = 'books';
+                bookQuery = {
+                    text: $scope.searchQuery.split(' ').join('+')
+                };
                 console.log(bookQuery);
                 return $http({
-			url: bookURL,
-			method: "POST",
-			data: bookQuery
-		}).success(function(data){
+                    url: bookURL,
+                    method: "POST",
+                    data: bookQuery
+                }).success(function(data){
                    $scope.books.push(data); $scope.searchQuery = '';
                 });
             };
