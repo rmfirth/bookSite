@@ -5,6 +5,11 @@ angular.module('book', [])
         function($scope,$http) {
             $scope.books = [];
 
+            $scope.getBooks = function() {
+              return $http.get('/books').success(function(data) {
+                  angular.copy(data, $scope.books);
+              });
+            };
 
             $scope.addComment = function(book) {
                 if($scope.userName === '' || $scope.commentText === '') {return;}
@@ -22,7 +27,8 @@ angular.module('book', [])
                     method: "POST",
                     data: bookQuery
                 }).success(function(data){
-                   $scope.books.push(data); $scope.searchQuery = '';
+                   $scope.books.push(data);
+                   $scope.searchQuery = '';
                 });
             };
 
