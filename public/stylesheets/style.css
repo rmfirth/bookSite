@@ -1,7 +1,11 @@
 body {
-    padding: 5%;
+    /*padding: 5%;*/
     background-color: black;
-    color:white;
+    /*color:white;*/
+}
+
+.contain {
+    padding: 5%;
 }
 
 .title-div {

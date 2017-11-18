@@ -10,10 +10,10 @@
 </head>
 <body ng-app="book" ng-controller="MainCtrl">
 
-<div class="jumbotron title-div">
+<div class="jumbotron jumbotron-fluid title-div">
     <h1 class="display-3">REVIEW YOUR FAVORITE BOOKS</h1>
 </div>
-
+<div class="contain">
 <form ng-submit="addBook()">
     <div class="form-group">
         <label>Add a Book to Review:</label>
@@ -38,6 +38,6 @@
         <p>{{comment.text}}</p>
     </div>
 </div>
-
+</div>
 </body>
 </html>
