@@ -15,6 +15,7 @@ body {
     border-radius: 5px;
     border: 2px solid black;
     padding: 2px;
+    margin: 5px 0;
 }
 
 .book-div {
@@ -28,7 +29,7 @@ body {
     border-radius: 5px;
     color: black;
     padding: 5px;
-    box-shadow: white 0 0 10px;
+    box-shadow: white 0 0 40px;
     overflow-x: hidden;
 }
 
