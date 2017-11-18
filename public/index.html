@@ -13,12 +13,12 @@
 <form ng-submit="addBook()">
     <div class="form-group">
         <label>Add a Book to Review:</label>
-        <input type="text" class="form-control" ng-model="searchQuery">
+        <input type="text" class="form-control" ng-model="searchQuery"><br>
         <button type="submit" class="btn btn-primary">Add</button>
     </div>
 </form>
 
-<div ng-repeat="book in books track by $index">
+<div ng-repeat="book in books track by $index" class="book-div">
     <h3>{{book.title}}</h3>
     <img src="{{book.imageURL}}" />
     <div class="form-group">
@@ -28,7 +28,7 @@
         <br><button type="submit" class="btn btn-primary">Post Review</button>
     </form>
     </div>
-    <div ng-repeat="comment in book.reviews" class="book-div">
+    <div ng-repeat="comment in book.reviews">
         <h3>{{comment.userID}}</h3>
         <p>{{comment.text}}</p>
     </div>
