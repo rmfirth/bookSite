@@ -21,7 +21,12 @@ body {
     overflow: scroll;
     border-radius: 5px;
     color: black;
-    padding 5px;
+    padding: 5px;
+}
+
+.book-div img {
+    display:block;
+    margin: auto;
 }
 
 .book-div h2 {
