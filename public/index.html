@@ -10,6 +10,10 @@
 </head>
 <body ng-app="book" ng-controller="MainCtrl">
 
+<div class="title-div">
+    <h1>REVIEW YOUR FAVORITE BOOKS</h1>
+</div>
+
 <form ng-submit="addBook()">
     <div class="form-group">
         <label>Add a Book to Review:</label>
@@ -19,7 +23,7 @@
 </form>
 
 <div ng-repeat="book in books track by $index" class="book-div">
-    <h3>{{book.title}}</h3>
+    <h2>{{book.title}}</h2>
     <img src="{{book.imageURL}}" />
     <div class="form-group">
     <form ng-submit="addComment(book, $index)"> <!--form ng-submit="addComment(book)">-->

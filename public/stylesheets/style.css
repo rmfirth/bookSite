@@ -4,6 +4,13 @@ body {
     color:white;
 }
 
+.title-div {
+    text-align: center;
+    color: white;
+    background-color: #0108b0;
+    border-radius: 5px;
+}
+
 .book-div {
     background-color: white;
     display: inline-block;
@@ -14,4 +21,9 @@ body {
     overflow: scroll;
     border-radius: 5px;
     color: black;
+    padding 5px;
+}
+
+.book-div h2 {
+    text-align: center;
 }
