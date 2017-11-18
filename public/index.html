@@ -28,8 +28,9 @@
         <br><button type="submit" class="btn btn-primary">Post Review</button>
     </form>
     </div>
-    <div ng-repeat="comment in book.reviews">
-      <p>{{comment.text}}</p>
+    <div ng-repeat="comment in book.reviews" class="book-div">
+        <h3>{{comment.userID}}</h3>
+        <p>{{comment.text}}</p>
     </div>
 </div>
 

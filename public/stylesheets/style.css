@@ -1,0 +1,14 @@
+body {
+    padding: 5%;
+    background-color: black;
+}
+
+.book-div {
+    background-color: white;
+    display: inline-block;
+    width: 25%;
+    max-height: 200px;
+    overflow: scroll;
+    border-radius: 5px;
+    box-shadow: inset;
+}
