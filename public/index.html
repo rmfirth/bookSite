@@ -11,18 +11,19 @@
 
 <form ng-submit="addBook()">
     <input type="text" ng-model="searchQuery">
-    <button type="submit">Search</button>
+    <button type="submit">Add</button>
 </form>
 
-<div ng-repeat="book in books">
+<div ng-repeat="book in books track by $index">
     <h3>{{book.title}}</h3>
-    <form ng-submit="addComment(book)">
-        <input type="text" ng-model="userName">
-        <input type="text" ng-model="commentText">
-        <button type="submit">Post Review</button>
+    <img src="{{book.imageURL}}" />
+    <form ng-submit="addComment(book, $index)"> <!--form ng-submit="addComment(book)">-->
+	<br>username:<br> <input type="text" ng-model="book.userName">
+        <br> Review:<br> <textarea ng-model="book.commentText"></textarea>
+        <br><button type="submit">Post Review</button>
     </form>
-    <div ng-repeat="comment in book.comments | orderBy: '-upvotes'">
-
+    <div ng-repeat="comment in book.reviews">
+      <p>{{comment.text}}</p>
     </div>
 </div>
 

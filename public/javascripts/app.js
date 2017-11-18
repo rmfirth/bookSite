@@ -8,12 +8,25 @@ angular.module('book', [])
             $scope.getBooks = function() {
               return $http.get('/books').success(function(data) {
                   angular.copy(data, $scope.books);
+			console.log($scope.books);
               });
-            };
+            }; $scope.getBooks();
 
-            $scope.addComment = function(book) {
-                if($scope.userName === '' || $scope.commentText === '') {return;}
-
+            $scope.addComment = function(book, index) {
+                if($scope.books[index].userName === '' || $scope.books[index].commentText === '') {return;}
+		commentURL = '/books/' + book._id + '/addPost';
+                var commentToAdd = {
+                  text: $scope.books[index].commentText,
+                  userID: $scope.books[index].userName
+                };
+                console.log(commentToAdd);
+                $http({
+                  url: commentURL,
+                  method: "PUT",
+                  data: commentToAdd,
+                }).success(function() {
+                  $scope.getBooks();
+                });
             };
 
             $scope.addBook = function() {

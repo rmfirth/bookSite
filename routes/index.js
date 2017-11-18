@@ -1,18 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/commentDB',{useMongoClient:true});
 
 var request = require('request');
 var parseString = require('xml2js').parseString;
-var BookSchema = new mongoose.Schema({
-    title:String,
-    imageURL:String,
-    author:String,
-    reviews: [{text:String, userID:String}]
-});
 
-var Book = mongoose.model('Book', BookSchema);
+var Book = mongoose.model('Book');
 
 
 router.get('/books', function(req,res,next) {
@@ -20,6 +13,34 @@ router.get('/books', function(req,res,next) {
     if(err){return next(err);}
     res.json(books);
   });
+});
+
+router.param('book',function(req,res,next,id) {
+  var query = Book.findById(id);
+  query.exec(function(err, book){
+    if(err) {return next(err); }
+    if(!book) {return next(new Error("can't find book")); }
+    req.book = book;
+    return next();
+  });
+});
+
+router.put('/books/:book/addPost',function(req,res,next){
+  console.log("HERE IT IS");
+  console.log(req.body);
+  console.log(req.book);
+  var newReview = {
+    text: req.body.text,
+    userID: req.body.userID
+  };
+  req.book.reviews.push(newReview);
+  req.book.save(function(err,book) {
+    if(err) return console.error(err);
+    res.json(book);
+  });
+  //console.log(req.book);
+  //console.log(req.book);
+  //res.json(req.book);
 });
 
 router.post('/books', function(req,res,next) {
